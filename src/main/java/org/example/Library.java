@@ -26,6 +26,19 @@ public class Library {
             return "Book Borrowed";
         }
     }
+    // Will check if the book has the status of not available it will be returned or appropriate error will be returned.
+    public String returnBook(String isbn){
+        Book book=books.get(isbn);
+        if(book==null){
+            return "Not found";
+        } else if (book.isAvailable()) {
+            return "Book wasn't Borrowed";
+        }
+        else{
+            book.setAvailable(true);
+            return "Book returned";
+        }
+    }
     // here we take the details of all books convert then to stream so we can perform filter on them
     // on the basis of  availability and convert them into list to return them.
     public Collection<Book> viewAvailableBooks(){

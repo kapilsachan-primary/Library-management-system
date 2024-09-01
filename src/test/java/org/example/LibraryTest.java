@@ -21,8 +21,19 @@ class LibraryTest {
         Book book = new Book("123", "Book Title", "Author Name", 2024);
         assertTrue(library.addBook(book));// check if book has unique isbn
         assertEquals("Book Borrowed", library.borrowBook("123"));//check when available book is borrowed it should give appropriate message be displayed.
-        assertEquals("No such book in library", library.borrowBook("12"));//checks if book is not in library then appropriate error br returned.
+        assertEquals("No such book in library", library.borrowBook("12"));//checks if book is not in library then appropriate error be returned.
         assertEquals("Book not available now", library.borrowBook("123"));//checks if book is not available it should give appropriate error.
         assertFalse(book.isAvailable());//checks that after borrowing book is not available
+    }
+    //test cases for returning books.
+    @Test
+    public void testReturnBook(){
+        Library library = new Library();
+        Book book = new Book("123", "Book Title", "Author Name", 2024);
+        assertTrue(library.addBook(book));// check if book has unique isbn
+        assertEquals("Book Borrowed",library.borrowBook("123"));// Now we borrow that book.
+        assertEquals("Book returned",library.returnBook("123"));//Checks if the borrowed book is returned
+        assertEquals("Not found",library.returnBook("12"));//checks if book is not in library then appropriate error be returned
+        assertEquals("Book wasn't Borrowed",library.returnBook("123"));//checks if book wasn't borrowed.
     }
 }
