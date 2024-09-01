@@ -35,6 +35,7 @@ class LibraryTest {
         assertTrue(library.addBook(book));// check if book has unique isbn and then adds it.
         assertEquals("Book Borrowed",library.borrowBook("123"));// Now we borrow that book.
         assertEquals("Book returned",library.returnBook("123"));//Checks if the borrowed book is returned
+        assertTrue(book.isAvailable());//checks that after returning book is available
         assertEquals("Not found",library.returnBook("12"));//checks if book is not in library then appropriate error be returned
         assertEquals("Book wasn't Borrowed",library.returnBook("123"));//checks if book wasn't borrowed.
     }
