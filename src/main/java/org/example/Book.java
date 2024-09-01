@@ -14,7 +14,7 @@ public class Book {
         this.publicationYear = publicationYear;
         this.available = true;
     }
-
+    // Getter method to get specific details of a book instance
     public String getIsbn() {
         return isbn;
     }
