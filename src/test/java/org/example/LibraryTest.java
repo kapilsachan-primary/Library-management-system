@@ -10,7 +10,8 @@ class LibraryTest {
     public void testAddBook(){
         Library library=new Library();
         Book book=new Book("123","Book Title","Author Name",2024);
-        library.addBook(book);
-        assertTrue(library.viewAvailableBooks().contains(book));
+        assertTrue(library.addBook(book));// check if book has unique isbn
+        assertFalse(library.addBook(book));//checks if book does not have a unique isbn
+        assertTrue(library.viewAvailableBooks().contains(book));//check if added book is available.
     }
 }
