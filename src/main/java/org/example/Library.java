@@ -14,6 +14,18 @@ public class Library {
         books.put(book.getIsbn(), book);
         return true;
     }
+    public String borrowBook(String isbn){
+        Book book=books.get(isbn);
+        if(book==null)
+            return "No such book in library";
+        else if (!book.isAvailable()) {
+            return "Book not available now";
+        }
+        else{
+            book.setAvailable(false);
+            return "Book Borrowed";
+        }
+    }
     // here we take the details of all books convert then to stream so we can perform filter on them
     // on the basis of  availability and convert them into list to return them.
     public Collection<Book> viewAvailableBooks(){
